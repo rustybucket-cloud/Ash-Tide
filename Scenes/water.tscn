@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cp8mpxqvp705q"]
+
+[ext_resource type="Shader" uid="uid://c8dox663i17wo" path="res://Shader/water.gdshader" id="1_slmpt"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ua7hw"]
+size = Vector2(1000, 1000)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gf5bf"]
+render_priority = 0
+shader = ExtResource("1_slmpt")
+shader_parameter/deep_color = Color(0.357, 0.608, 0.976, 1)
+shader_parameter/foam_color = Color(0.6, 0.8, 1, 1)
+shader_parameter/noise_scale = 256.0
+shader_parameter/time_speed = 0.001
+shader_parameter/foam_hardness = 0.9
+shader_parameter/octaves = 2
+
+[sub_resource type="GDScript" id="GDScript_slmpt"]
+script/source = "extends MeshInstance3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="Water" type="MeshInstance3D"]
+mesh = SubResource("PlaneMesh_ua7hw")
+surface_material_override/0 = SubResource("ShaderMaterial_gf5bf")
+script = SubResource("GDScript_slmpt")

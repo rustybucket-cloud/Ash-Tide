@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn8u7w2twn11o"]
+
+[ext_resource type="PackedScene" uid="uid://do7qp5jyow7fj" path="res://Scenes/buoy.tscn" id="2_y3l3b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1ay15"]
+size = Vector3(10, 1, 10)
+
+[node name="Farm Area" type="Area3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_1ay15")
+
+[node name="Buoy" parent="." instance=ExtResource("2_y3l3b")]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, -4.9989176, 0, 4.9164686)
+
+[node name="Buoy2" parent="." instance=ExtResource("2_y3l3b")]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, 5.330139, 0, 4.9164686)
+
+[node name="Buoy3" parent="." instance=ExtResource("2_y3l3b")]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, 5.330139, 0, -4.799322)
+
+[node name="Buoy4" parent="." instance=ExtResource("2_y3l3b")]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, -4.96595, 0, -4.799322)
