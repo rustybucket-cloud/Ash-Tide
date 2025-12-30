@@ -1,15 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://o4siv4j1njrv"]
+[gd_scene load_steps=6 format=3 uid="uid://o4siv4j1njrv"]
 
-[ext_resource type="PackedScene" uid="uid://d1fy1apxq704h" path="res://Scenes/player.tscn" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://ca7mnhr4opq30" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="Script" uid="uid://dkoq66g40gunv" path="res://Scripts/main.gd" id="1_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://cp8mpxqvp705q" path="res://Scenes/water.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://dn8u7w2twn11o" path="res://Scenes/farm_area.tscn" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://dx1kl0oq42avf" path="res://Scenes/dock.tscn" id="5_kry3j"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_jjvhh")
 player_scene = ExtResource("1_jjgbg")
 farm_area_scene = ExtResource("3_8gbba")
 water_scene = ExtResource("2_bo1nx")
+dock_scene = ExtResource("5_kry3j")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9232236, 0.3842631, 0, -0.3842631, 0.9232236, 0, 1.3368386, 0)

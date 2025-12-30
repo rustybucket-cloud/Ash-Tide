@@ -12,6 +12,7 @@ var speed_ratio = 0.0
 var _rotation_offset = 0.0
 
 
+
 func set_mesh(new_mesh: MeshInstance3D) -> void:
 	mesh = new_mesh
 	
@@ -34,3 +35,4 @@ func bob(delta: float) -> void:
 	var bob_value = sin(bob_time) * bob_intensity
 	mesh.rotation.x = _rotation_offset + bob_value
 	mesh.position.y = bob_value
+	

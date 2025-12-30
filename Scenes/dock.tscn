@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dx1kl0oq42avf"]
+
+[ext_resource type="Script" uid="uid://bm378m0jg3qwv" path="res://Scripts/dock.gd" id="1_pdbyd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6a54b"]
+size = Vector3(5, 1, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6a54b"]
+size = Vector3(5, 1, 2)
+
+[node name="Dock" type="RigidBody3D"]
+gravity_scale = 0.0
+script = ExtResource("1_pdbyd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_6a54b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_6a54b")
