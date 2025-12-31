@@ -11,8 +11,8 @@ var bobber
 
 func _ready() -> void:
 	bobber = Bobber.new()
-	bobber.set_mesh($MeshInstance3D)
-	bobber.set_rotation_offset(90)
+	bobber.set_mesh($ship)
+	bobber.set_rotation_offset(0)
 	
 
 func move(move_input, turn_input, delta) -> void:

@@ -2,7 +2,7 @@ extends Node
 
 class_name Bobber
 
-var mesh: MeshInstance3D
+var mesh: Node3D
 
 var bob_time = 0.0
 @export var bob_amount = 0.1
@@ -13,7 +13,7 @@ var _rotation_offset = 0.0
 
 
 
-func set_mesh(new_mesh: MeshInstance3D) -> void:
+func set_mesh(new_mesh: Node3D) -> void:
 	mesh = new_mesh
 	
 

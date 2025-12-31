@@ -1,13 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://dn8u7w2twn11o"]
+[gd_scene load_steps=4 format=3 uid="uid://dn8u7w2twn11o"]
 
+[ext_resource type="Script" uid="uid://b41iy7hg7nrcw" path="res://Scripts/farm_area.gd" id="1_y3l3b"]
 [ext_resource type="PackedScene" uid="uid://do7qp5jyow7fj" path="res://Scenes/buoy.tscn" id="2_y3l3b"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1ay15"]
 size = Vector3(10, 1, 10)
 
 [node name="Farm Area" type="Area3D"]
+script = ExtResource("1_y3l3b")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2.3632212, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_1ay15")
 
 [node name="Buoy" parent="." instance=ExtResource("2_y3l3b")]
@@ -21,3 +24,9 @@ transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881904, 0, 0.25881904, 0.965
 
 [node name="Buoy4" parent="." instance=ExtResource("2_y3l3b")]
 transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, -4.96595, 0, -4.799322)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
