@@ -11,7 +11,7 @@ script = ExtResource("1_v0iea")
 farm_area_scene = ExtResource("2_6t5aa")
 
 [node name="Boat" parent="." groups=["Player"] instance=ExtResource("2_cvnsp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Boat"]
 transform = Transform3D(0.9999981, -0.0009337012, -0.0017210757, 0.0017204874, 0.8386379, 0.5446867, 0.0009347847, -0.5446886, 0.83863795, 0, 2.519605, 5.601495)

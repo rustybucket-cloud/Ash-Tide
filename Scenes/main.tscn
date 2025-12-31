@@ -16,4 +16,4 @@ dock_scene = ExtResource("5_kry3j")
 farm_canvas_scene = ExtResource("6_21xkr")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.9232236, 0.3842631, 0, -0.3842631, 0.9232236, 0, 1.3368386, 0)
+transform = Transform3D(1, 0, 0, 0, 0.11256161, 0.99364495, 0, -0.99364495, 0.11256161, 0, 1.3368386, 0)

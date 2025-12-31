@@ -5,7 +5,8 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_7u77a"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jjgbg"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_g7r5y"]
+size = Vector3(1, 1.882843, 1.0048828)
 
 [node name="Boat" type="CharacterBody3D"]
 script = ExtResource("1_v0iea")
@@ -17,8 +18,8 @@ mesh = SubResource("CapsuleMesh_7u77a")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, 0, 0, 0)
-shape = SubResource("CapsuleShape3D_jjgbg")
+transform = Transform3D(1.6, 0, 0, 0, -6.9938224e-08, -1.6, 0, 1.6, -6.9938224e-08, 0, 0.0039062428, 0.16491698)
+shape = SubResource("BoxShape3D_g7r5y")
 
 [node name="ship" parent="." instance=ExtResource("2_g7r5y")]
 transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 0, 0, 0)
