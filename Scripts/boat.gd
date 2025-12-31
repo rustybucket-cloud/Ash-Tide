@@ -13,7 +13,7 @@ func _ready() -> void:
 	bobber = Bobber.new()
 	bobber.set_mesh($ship)
 	bobber.set_rotation_offset(0)
-	
+
 
 func move(move_input, turn_input, delta) -> void:
 	if move_input != 0:
@@ -26,7 +26,7 @@ func move(move_input, turn_input, delta) -> void:
 
 	rotate_y(turn_input * delta * turn_speed)
 	velocity = -transform.basis.z * current_speed
-	
+
 	move_and_slide()
 
 
