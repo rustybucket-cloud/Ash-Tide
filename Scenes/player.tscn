@@ -1,14 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://ca7mnhr4opq30"]
+[gd_scene load_steps=6 format=3 uid="uid://ca7mnhr4opq30"]
 
 [ext_resource type="Script" uid="uid://4fx2w1l1jdko" path="res://Scripts/player.gd" id="1_v0iea"]
 [ext_resource type="PackedScene" uid="uid://dn8u7w2twn11o" path="res://Scenes/farm_area.tscn" id="2_6t5aa"]
 [ext_resource type="PackedScene" uid="uid://d1fy1apxq704h" path="res://Scenes/boat.tscn" id="2_cvnsp"]
+[ext_resource type="PackedScene" uid="uid://canawe3b1k82k" path="res://Scenes/new_farm_area.tscn" id="3_vgqql"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6t5aa"]
 
 [node name="Player" type="Node3D" groups=["Player"]]
 script = ExtResource("1_v0iea")
 farm_area_scene = ExtResource("2_6t5aa")
+new_farm_area_scene = ExtResource("3_vgqql")
 
 [node name="Boat" parent="." groups=["Player"] instance=ExtResource("2_cvnsp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)

@@ -18,17 +18,14 @@ var dock
 @export var farm_canvas_scene : PackedScene
 var farm_canvas
 
+@onready var player_canvas = $PlayerCanvas
+@onready var inventory_canvas = $InventoryCanvas
+
 func _ready() -> void:
 	#### CREATE SCENE CHILDREN ####
 	player = player_scene.instantiate()
 	player.global_position = player_starting_position
 	add_child(player)
-	
-	farm_area = farm_area_scene.instantiate()
-	farm_area.global_position = farm_starting_position
-	farm_area.player_entered.connect(_on_farm_area_player_entered)
-	farm_area.player_exited.connect(_on_farm_area_player_exited)
-	add_child(farm_area)
 	
 	water = water_scene.instantiate()
 	water.global_position = Vector3.ZERO
@@ -41,6 +38,9 @@ func _ready() -> void:
 	farm_canvas = farm_canvas_scene.instantiate()
 	add_child(farm_canvas)
 	
+	player_canvas.inventory_button_pressed.connect(_on_inventory_button_pressed)
+	inventory_canvas.close_button_pressed.connect(_on_close_button_pressed)
+	
 
 func _on_farm_area_player_entered() -> void:
 	farm_canvas.show_harvest_button()
@@ -48,6 +48,16 @@ func _on_farm_area_player_entered() -> void:
 
 func _on_farm_area_player_exited() -> void:
 	farm_canvas.hide_harvest_button()
+
+
+func _on_inventory_button_pressed() -> void:
+	player_canvas.visible = false
+	inventory_canvas.visible = true
+	
+
+func _on_close_button_pressed() -> void:
+	player_canvas.visible = true
+	inventory_canvas.visible = false
 
 
 func _dock_player() -> void:

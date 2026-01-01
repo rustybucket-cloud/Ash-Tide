@@ -6,11 +6,13 @@ signal player_exited()
 @onready var occupied_mesh = $OccupiedMesh
 
 
+# for when the player enters a farm area
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player"):
 		player_entered.emit()
 
 
+# for when the player exits a farm area
 func _on_body_exited(body: Node3D) -> void:
 	if body.is_in_group("Player"):
 		player_exited.emit()

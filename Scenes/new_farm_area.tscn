@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://canawe3b1k82k"]
+
+[ext_resource type="PackedScene" uid="uid://dn8u7w2twn11o" path="res://Scenes/farm_area.tscn" id="1_g8jhb"]
+[ext_resource type="Script" uid="uid://de07aj0xw3sge" path="res://Scripts/new_farm_area.gd" id="1_k6458"]
+
+[node name="New Farm Area" type="Node3D"]
+script = ExtResource("1_k6458")
+
+[node name="Farm Area" parent="." instance=ExtResource("1_g8jhb")]
