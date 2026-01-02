@@ -33,6 +33,7 @@ func get_placement_basis() -> Basis:
 func _physics_process(_delta: float) -> void:
 	_sync_boat_and_farm_area()
 
+
 func _sync_boat_and_farm_area() -> void:
 	assert(boat != null, "boat must be defined in new_farm_area")
 	assert(farm_area != null, "farm_area must be defined in new_farm_area")

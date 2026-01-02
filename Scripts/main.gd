@@ -21,10 +21,13 @@ var farm_canvas
 @onready var player_canvas = $PlayerCanvas
 @onready var inventory_canvas = $InventoryCanvas
 
+@onready var state_manager = StateManager.new()
+
 func _ready() -> void:
 	#### CREATE SCENE CHILDREN ####
 	player = player_scene.instantiate()
 	player.global_position = player_starting_position
+	player.set_state_manager(state_manager)
 	add_child(player)
 	
 	water = water_scene.instantiate()
@@ -53,11 +56,15 @@ func _on_farm_area_player_exited() -> void:
 func _on_inventory_button_pressed() -> void:
 	player_canvas.visible = false
 	inventory_canvas.visible = true
+	get_tree().paused = true
+	state_manager.pause()
 	
 
 func _on_close_button_pressed() -> void:
 	player_canvas.visible = true
 	inventory_canvas.visible = false
+	get_tree().paused = false
+	state_manager.run()
 
 
 func _dock_player() -> void:

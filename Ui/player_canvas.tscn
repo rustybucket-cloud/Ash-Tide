@@ -26,6 +26,10 @@ theme_override_constants/margin_bottom = 8
 layout_mode = 2
 alignment = 2
 
+[node name="SelectedItem" type="Button" parent="MarginContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Value"
+
 [node name="InventoryButton" type="Button" parent="MarginContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = "Inventory
