@@ -24,6 +24,8 @@ func _process(_delta: float) -> void:
 	for i in range(len(inventory_item_children)):
 		if Inventory.items[i] != null:
 			inventory_item_children[i].set_inventory_item(Inventory.items[i])
+		else:
+			inventory_item_children[i].clear_inventory_item()
 
 
 func _on_close_button_pressed() -> void:

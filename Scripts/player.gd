@@ -39,10 +39,16 @@ func _process(_delta: float) -> void:
 					farm_area.global_basis = new_farm_area.get_placement_basis()
 
 					_destroy_new_farm()
+					Inventory.remove_selected_item()
 	else:
 		### Destroy new farm if unselecting farm area ###
 		if new_farm_area != null:
 			_destroy_new_farm()
+	
+	if selected_item != null and selected_item.display_name == "Seaweed Seed":
+		print("Seaweed seed")
+	else:
+		pass
 
 
 func _physics_process(delta: float) -> void:

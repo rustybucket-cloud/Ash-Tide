@@ -60,4 +60,21 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_7aop0")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_cgiqh")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_7ykv4")
 
+[node name="CountContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="CountLabel" type="Label" parent="CountContainer"]
+layout_mode = 2
+
 [connection signal="pressed" from="InvisibleButton" to="." method="_on_invisible_button_pressed"]

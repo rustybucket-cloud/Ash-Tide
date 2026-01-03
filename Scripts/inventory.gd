@@ -34,6 +34,22 @@ func add_item(item: InventoryItem, slot: int) -> void:
 	items[slot].count += 1
 
 
+func remove_item(slot: int) -> void:
+	assert(slot <= items.size() - 1)
+	if items[slot] == null:
+		return
+	
+	items[slot].count -= 1
+	if items[slot].count < 1:
+		items[slot] = null
+		if selected_item == slot:
+			selected_item = -1
+
+
+func remove_selected_item() -> void:
+	remove_item(selected_item)
+
+
 func get_available_slot(item: InventoryItem) -> Array[int]:
 	var available_slots = []
 	for i in SLOT_COUNT:
