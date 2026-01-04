@@ -4,6 +4,9 @@ extends Node3D
 @export var new_farm_area_scene : PackedScene
 var new_farm_area = null
 
+@export var seed_planter_scene : PackedScene
+var seed_planter = null
+
 @onready var boat = $Boat
 @onready var detector = $Boat/TriggerDetector
 
@@ -46,9 +49,18 @@ func _process(_delta: float) -> void:
 			_destroy_new_farm()
 	
 	if selected_item != null and selected_item.display_name == "Seaweed Seed":
-		print("Seaweed seed")
+		if seed_planter == null:
+			seed_planter = seed_planter_scene.instantiate()
+			seed_planter.init(boat)
+			get_tree().current_scene.add_child(seed_planter)
+		else:
+			if Input.is_action_just_pressed("available_action"):
+				if seed_planter.can_plant():
+					seed_planter.plant()
+					Inventory.remove_selected_item()
 	else:
-		pass
+		if seed_planter != null:
+			_destroy_seed_planter()
 
 
 func _physics_process(delta: float) -> void:
@@ -63,5 +75,22 @@ func _physics_process(delta: float) -> void:
 
 
 func _destroy_new_farm() -> void:
+	assert(new_farm_area != null)
 	new_farm_area.queue_free()
 	new_farm_area = null
+
+
+func _destroy_seed_planter() -> void:
+	assert(seed_planter != null)
+	seed_planter.queue_free()
+	seed_planter = null
+
+
+func _on_boat_area_entered(area: Area3D) -> void:
+	if seed_planter != null:
+		seed_planter.entered_farm_area(area)
+
+
+func _on_boat_area_exited(area: Area3D) -> void:
+	if seed_planter != null:
+		seed_planter.exited_farm_area(area)

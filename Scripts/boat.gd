@@ -1,5 +1,8 @@
 extends CharacterBody3D
 
+signal area_entered(area: Area3D)
+signal area_exited(area: Area3D)
+
 var current_speed = 0.0
 
 @export var max_speed = 2.0
@@ -33,3 +36,11 @@ func _physics_process(delta: float) -> void:
 	bobber.bob(delta)
 
 	move_and_slide()
+
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	area_entered.emit(area)
+
+
+func _on_area_3d_area_exited(area: Area3D) -> void:
+	area_exited.emit(area)

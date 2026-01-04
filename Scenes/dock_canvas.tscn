@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cr16gr1li7t0g"]
+
+[node name="DockCanvas" type="CanvasLayer"]
+
+[node name="DockButton" type="Button" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -23.0
+offset_top = 96.0
+offset_right = 24.0
+offset_bottom = 127.0
+grow_horizontal = 2
+text = "Dock"

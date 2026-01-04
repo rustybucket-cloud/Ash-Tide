@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dn8u7w2twn11o"]
+[gd_scene load_steps=7 format=3 uid="uid://dn8u7w2twn11o"]
 
 [ext_resource type="Script" uid="uid://b41iy7hg7nrcw" path="res://Scripts/farm_area.gd" id="1_y3l3b"]
+[ext_resource type="PackedScene" uid="uid://cb7ju60l4rckw" path="res://Scenes/seaweed.tscn" id="2_o2ltu"]
 [ext_resource type="PackedScene" uid="uid://do7qp5jyow7fj" path="res://Scenes/buoy.tscn" id="2_y3l3b"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1ay15"]
@@ -14,6 +15,7 @@ albedo_color = Color(1, 0.21568628, 0.20784314, 0.20392157)
 
 [node name="Farm Area" type="Area3D" groups=["Farm Area"]]
 script = ExtResource("1_y3l3b")
+seaweed_scene = ExtResource("2_o2ltu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 2.3632212, 0, 0, 0, 1, 0, 0, 0)

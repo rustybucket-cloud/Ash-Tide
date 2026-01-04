@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cb7ju60l4rckw"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6f2jx"]
+
+[node name="Seaweed" type="MeshInstance3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_6f2jx")

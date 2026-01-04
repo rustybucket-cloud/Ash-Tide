@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://uk7k1ch03bme"]
+[gd_scene load_steps=3 format=3 uid="uid://uk7k1ch03bme"]
 
 [ext_resource type="Script" uid="uid://brlp7o30a86kg" path="res://Scripts/player_canvas.gd" id="1_mtjeo"]
+[ext_resource type="Script" uid="uid://bp0ufbwyd3n5a" path="res://Scripts/time_label.gd" id="2_ehs1m"]
 
 [node name="PlayerCanvas" type="CanvasLayer"]
 script = ExtResource("1_mtjeo")
@@ -22,17 +23,33 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer"]
+[node name="Content" type="HBoxContainer" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Time" type="HBoxContainer" parent="MarginContainer/MarginContainer/Content"]
+layout_mode = 2
+
+[node name="TimeLabel" type="Label" parent="MarginContainer/MarginContainer/Content/Time"]
+layout_mode = 2
+text = "10:32"
+script = ExtResource("2_ehs1m")
+
+[node name="Control" type="Control" parent="MarginContainer/MarginContainer/Content"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Actions" type="HBoxContainer" parent="MarginContainer/MarginContainer/Content"]
 layout_mode = 2
 alignment = 2
 
-[node name="SelectedItem" type="Button" parent="MarginContainer/MarginContainer/HBoxContainer"]
+[node name="SelectedItem" type="Button" parent="MarginContainer/MarginContainer/Content/Actions"]
 layout_mode = 2
 text = "Value"
 
-[node name="InventoryButton" type="Button" parent="MarginContainer/MarginContainer/HBoxContainer"]
+[node name="InventoryButton" type="Button" parent="MarginContainer/MarginContainer/Content/Actions"]
 layout_mode = 2
 text = "Inventory
 "
 
-[connection signal="pressed" from="MarginContainer/MarginContainer/HBoxContainer/InventoryButton" to="." method="_on_inventory_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/Content/Actions/InventoryButton" to="." method="_on_inventory_button_pressed"]

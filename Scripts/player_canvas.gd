@@ -4,8 +4,9 @@ signal inventory_button_pressed
 
 @onready var selected_item_button = $MarginContainer/MarginContainer/HBoxContainer/SelectedItem
 
-
 func _process(_delta: float) -> void:
+	if selected_item_button == null:
+		return
 	var selected_item = Inventory.get_selected_item()
 	selected_item_button.visible = selected_item != null
 	if selected_item == null:

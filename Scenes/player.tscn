@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ca7mnhr4opq30"]
+[gd_scene load_steps=7 format=3 uid="uid://ca7mnhr4opq30"]
 
 [ext_resource type="Script" uid="uid://4fx2w1l1jdko" path="res://Scripts/player.gd" id="1_v0iea"]
 [ext_resource type="PackedScene" uid="uid://dn8u7w2twn11o" path="res://Scenes/farm_area.tscn" id="2_6t5aa"]
 [ext_resource type="PackedScene" uid="uid://d1fy1apxq704h" path="res://Scenes/boat.tscn" id="2_cvnsp"]
 [ext_resource type="PackedScene" uid="uid://canawe3b1k82k" path="res://Scenes/new_farm_area.tscn" id="3_vgqql"]
+[ext_resource type="PackedScene" uid="uid://b55uolbug81ov" path="res://Scenes/seed_planter.tscn" id="4_fkybt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6t5aa"]
 
@@ -11,6 +12,7 @@
 script = ExtResource("1_v0iea")
 farm_area_scene = ExtResource("2_6t5aa")
 new_farm_area_scene = ExtResource("3_vgqql")
+seed_planter_scene = ExtResource("4_fkybt")
 
 [node name="Boat" parent="." groups=["Player"] instance=ExtResource("2_cvnsp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
@@ -24,3 +26,6 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Boat/TriggerDetector"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.38329744, 0.12039167)
 shape = SubResource("BoxShape3D_6t5aa")
+
+[connection signal="area_entered" from="Boat" to="." method="_on_boat_area_entered"]
+[connection signal="area_exited" from="Boat" to="." method="_on_boat_area_exited"]

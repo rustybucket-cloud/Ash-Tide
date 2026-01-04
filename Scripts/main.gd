@@ -18,8 +18,12 @@ var dock
 @export var farm_canvas_scene : PackedScene
 var farm_canvas
 
+@export var time_manager_scene : PackedScene
+var time_manager
+
 @onready var player_canvas = $PlayerCanvas
 @onready var inventory_canvas = $InventoryCanvas
+@onready var dock_canvas = $DockCanvas
 
 @onready var state_manager = StateManager.new()
 
@@ -36,6 +40,8 @@ func _ready() -> void:
 	
 	dock = dock_scene.instantiate()
 	dock.global_position = dock_starting_position
+	dock.docking_area_body_entered.connect(_on_dock_area_entered)
+	dock.docking_area_body_exited.connect(_on_dock_area_exited)
 	add_child(dock)
 	
 	farm_canvas = farm_canvas_scene.instantiate()
@@ -44,10 +50,14 @@ func _ready() -> void:
 	player_canvas.inventory_button_pressed.connect(_on_inventory_button_pressed)
 	inventory_canvas.close_button_pressed.connect(_on_close_button_pressed)
 	
+	time_manager = time_manager_scene.instantiate()
+	time_manager.init(state_manager)
+	add_child(time_manager)
+
 
 func _on_farm_area_player_entered() -> void:
 	farm_canvas.show_harvest_button()
-	
+
 
 func _on_farm_area_player_exited() -> void:
 	farm_canvas.hide_harvest_button()
@@ -58,7 +68,7 @@ func _on_inventory_button_pressed() -> void:
 	inventory_canvas.visible = true
 	get_tree().paused = true
 	state_manager.pause()
-	
+
 
 func _on_close_button_pressed() -> void:
 	player_canvas.visible = true
@@ -69,3 +79,13 @@ func _on_close_button_pressed() -> void:
 
 func _dock_player() -> void:
 	pass
+
+
+func _on_dock_area_entered(body: Node3D) -> void:
+	if body.is_in_group("boat"):
+		dock_canvas.visible = true
+
+
+func _on_dock_area_exited(body: Node3D) -> void:
+	if body.is_in_group("boat"):
+		dock_canvas.visible = false

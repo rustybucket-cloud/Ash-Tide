@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1fy1apxq704h"]
+[gd_scene load_steps=6 format=3 uid="uid://d1fy1apxq704h"]
 
 [ext_resource type="Script" uid="uid://b228rjg7qhjhl" path="res://Scripts/boat.gd" id="1_v0iea"]
 [ext_resource type="PackedScene" uid="uid://cr6p8a5plej1l" path="res://Assets/ship.glb" id="2_g7r5y"]
@@ -8,7 +8,10 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_g7r5y"]
 size = Vector3(1, 1.882843, 1.0048828)
 
-[node name="Boat" type="CharacterBody3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_badgh"]
+size = Vector3(1, 1, 1.8983154)
+
+[node name="Boat" type="CharacterBody3D" groups=["boat"]]
 script = ExtResource("1_v0iea")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -23,3 +26,12 @@ shape = SubResource("BoxShape3D_g7r5y")
 
 [node name="ship" parent="." instance=ExtResource("2_g7r5y")]
 transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, 0, 0, 0.1694336)
+shape = SubResource("BoxShape3D_badgh")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]
